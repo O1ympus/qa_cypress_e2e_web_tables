@@ -1,25 +1,49 @@
-// ***********************************************
-// This example commands.js shows you how to
-// create various custom commands and overwrite
-// existing commands.
-//
-// For more comprehensive examples of custom
-// commands please read more here:
-// https://on.cypress.io/custom-commands
-// ***********************************************
-//
-//
-// -- This is a parent command --
-// Cypress.Commands.add('login', (email, password) => { ... })
-//
-//
-// -- This is a child command --
-// Cypress.Commands.add('drag', { prevSubject: 'element'}, (subject, options) => { ... })
-//
-//
-// -- This is a dual command --
-// Cypress.Commands.add('dismiss', { prevSubject: 'optional'}, (subject, options) => { ... })
-//
-//
-// -- This will overwrite an existing command --
-// Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+/// <reference types='cypress' />
+
+Cypress.Commands.add('addWorker', (
+  firstname,
+  lastname,
+  email,
+  age,
+  salary,
+  department
+) => {
+  cy.get('#firstName').type(firstname);
+
+  cy.get('#lastName').type(lastname);
+
+  cy.get('#userEmail').type(email);
+
+  cy.get('#age').type(age);
+
+  cy.get('#salary').type(salary);
+
+  cy.get('#department').type(department);
+
+  cy.get('#submit').click();
+});
+
+Cypress.Commands.add('checkSelectionOfWorkers', (currentCountOfWorkers) => {
+  cy.get('[role="rowgroup"]')
+    .filter((_, el) => Cypress.$(el).text().trim().length > 0)
+    .should('have.length', currentCountOfWorkers);
+});
+
+Cypress.Commands.add('deleteAllWorkers', () => {
+  function deleteNextWorker() {
+    const deleteBtn = Cypress.$('[title="Delete"]').first();
+
+    if (deleteBtn.length > 0) {
+      // eslint-disable-next-line cypress/unsafe-to-chain-command
+      cy.wrap(deleteBtn)
+        .click()
+        .then(() => {
+          deleteNextWorker();
+        });
+    } else {
+      cy.checkSelectionOfWorkers(0);
+    }
+  }
+
+  deleteNextWorker();
+});
