@@ -5,11 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fd288f48-5c28-4dde-a284-aeb0cbc06230" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/qa_cypress_e2e_web_tables.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,7 +54,8 @@
       <option name="presentableId" value="Default" />
       <updated>1753565406689</updated>
       <workItem from="1753565408019" duration="5306000" />
-      <workItem from="1753570732944" duration="1207000" />
+      <workItem from="1753570732944" duration="1272000" />
+      <workItem from="1753572256990" duration="113000" />
     </task>
     <servers />
   </component>
